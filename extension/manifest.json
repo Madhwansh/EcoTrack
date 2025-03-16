@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "EcoTrack - Carbon Footprint Tracker",
+  "version": "1.0",
+  "description": "Track and visualize your carbon footprint based on browsing habits and purchases.",
+  "permissions": ["tabs", "storage", "activeTab", "scripting", "alarms"],
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
